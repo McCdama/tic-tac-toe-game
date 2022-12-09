@@ -4,10 +4,19 @@ import './index.css';
 
 // The Square component renders a single <button> 
 class Square extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: null
+        };
+    }
     render() {
         return (
-            <button className="square" onClick={(i) => { console.log("No", this.props.value, "is clicked"); }}>
-                {this.props.value}
+            <button className="square" onClick={(i) => {
+                this.setState({ value: 'X' })
+                console.log("No", this.props.value, "is clicked");
+            }}>
+                {this.state.value}
             </button>
         );
     }
